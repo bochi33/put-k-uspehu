@@ -51,7 +51,7 @@
   </head>
   <body>
     <div class="card">
-      <h1>Твой путь к успеху</h1>
+      <h1>Моя Цель</h1>
       <div class="counter" id="count">0</div>
       <button onclick="increment()">Идти вперёд</button>
     </div>
