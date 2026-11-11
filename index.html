@@ -74,5 +74,52 @@
         countElement.innerText = count;
       }
     </script>
-  </body>
+  <
+    <script>
+  const startBtn = document.getElementById('start-btn');
+  const nameInput = document.getElementById('user-name');
+  const surnameInput = document.getElementById('user-surname');
+  const ageInput = document.getElementById('user-age');
+
+  const counterContainer = document.createElement('div');
+  counterContainer.style.textAlign = 'center';
+  counterContainer.style.marginTop = '30px';
+  document.body.appendChild(counterContainer);
+
+  let daysCount = 0;
+
+  startBtn.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    const surname = surnameInput.value.trim();
+    const age = ageInput.value.trim();
+
+    if (!name || !surname || !age) {
+      alert('Пожалуйста, заполните все поля (Имя, Фамилия, Возраст)!');
+      return;
+    }
+
+    document.querySelector('.user-form').style.display = 'none';
+
+    counterContainer.innerHTML = `
+      <h1 style="color: #2c3e50;">${name} ${surname}, тебе ${age} лет</h1>
+      <p style="font-size: 1.2rem;">Ты начал свой путь. Каждый день без алкоголя — это победа.</p>
+      <div style="font-size: 3rem; font-weight: bold; color: #e74c3c; margin: 20px 0;">
+        ДНЕЙ ТРЕЗВОСТИ: <span id="days-display">0</span>
+      </div>
+      <button id="add-day-btn" style="padding: 15px 30px; font-size: 1.1rem; background-color: #3498db; color: white; border: none; border-radius: 10px; cursor: pointer;">+1 день</button>
+      <p style="color: #7f8c8d; margin-top: 10px;">Нажимай кнопку каждый раз, когда успешно прошёл день</p>
+    `;
+
+    const addDayBtn = document.getElementById('add-day-btn');
+    const daysDisplay = document.getElementById('days-display');
+
+    addDayBtn.addEventListener('click', () => {
+      daysCount++;
+      daysDisplay.textContent = daysCount;
+      daysDisplay.style.transform = 'scale(1.2)';
+      setTimeout(() => { daysDisplay.style.transform = 'scale(1)'; }, 200);
+    });
+  });
+</script>
+/body>
 </html>
